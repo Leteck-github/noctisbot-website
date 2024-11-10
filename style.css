@@ -1,0 +1,291 @@
+/* Styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+/* Barre de navigation sticky */
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #1e1e1e;
+    padding: 33px 0;
+    text-align: center;
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* Centre les liens */
+    align-items: center;
+}
+
+/* Centrer les liens */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* Style des liens sans soulignement */
+.nav-links a {
+    color: #a200ff;
+    font-size: 1.1em;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+/* Positionnement et style du bouton à droite */
+#add-bot-btn {
+    position: absolute; /* Positionné indépendamment des liens */
+    right: 20px; /* Positionné à droite de la barre */
+    background-color: #a200ff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+#add-bot-btn:hover {
+    background-color: #8700d4;
+}
+
+/* Style pour l'icône dans le bouton "Ajouter le bot" */
+#add-bot-btn .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px; /* Espace entre l'icône et le texte */
+    vertical-align: middle;
+}
+
+/* Section Héros */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    text-align: center;
+    background: linear-gradient(135deg, #470070, #151515);
+}
+
+.hero-text h1 {
+    font-size: 2.8em;
+    color: #a200ff;
+    font-weight: 600;
+    margin-bottom: 10px;
+    animation: fadeIn 1.5s ease;
+}
+
+.hero-description {
+    font-size: 1.5em;
+    color: #fafafa;
+    font-weight: 300;
+    min-height: 40px;
+}
+
+/* Curseur clignotant pour le texte de description */
+.hero-description::after {
+    content: "|";
+    margin-left: 5px;
+    color: #fafafa;
+    animation: blink 0.3s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    0%, 100% { color: #fafafa; }
+    50% { color: #03030c; }
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Sections de contenu */
+.content {
+    margin: 60px 0;
+}
+
+/* Titre des sections */
+h2 {
+    font-size: 2em;
+    color: #a200ff;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+p {
+    font-weight: 300;
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+/* Cartes de fonctionnalités */
+.feature-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.feature-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-weight: 400;
+    width: calc(33.33% - 20px);
+    max-width: 300px;
+    box-sizing: border-box;
+    
+    /* Apparition avec animation */
+    opacity: 0; /* Démarre invisible */
+    transform: translateY(20px); /* Position initiale en bas */
+    animation: fadeSlideUp 0.6s ease forwards;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transition rapide pour le survol */
+}
+
+/* Délais d'animation en cascade pour chaque carte */
+.feature-cards .feature-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.feature-cards .feature-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.feature-cards .feature-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+.feature-cards .feature-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+.feature-cards .feature-card:nth-child(5) {
+    animation-delay: 1s;
+}
+.feature-cards .feature-card:nth-child(6) {
+    animation-delay: 1.2s;
+}
+
+/* Effet de soulèvement modéré au survol */
+.feature-card:hover {
+    transform: translateY(-5px); /* Soulève légèrement de 5px */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 1.5); /* Ombre modérée */
+}
+
+/* Autres styles des cartes */
+.feature-card h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #a200ff;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 0.95em;
+    font-weight: 300;
+    color: #b0b0b0;
+}
+
+/* Conteneur pour centrer le bouton sous les fonctionnalités */
+.add-bot-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Style pour le bouton sous les fonctionnalités */
+#add-bot-btn-secondary {
+    background-color: #a200ff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+#add-bot-btn-secondary:hover {
+    background-color: #8700d4;
+}
+
+/* Style de l'icône dans le bouton secondaire */
+#add-bot-btn-secondary .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* Pied de page */
+footer {
+    background-color: #1e1e1e;
+    color: #777;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+footer p {
+    margin-bottom: 10px; /* Espace entre le texte et les icônes */
+}
+
+/* Conteneur des icônes avec espacement */
+footer .social-icons {
+    margin-top: 10px;
+    margin-bottom: 8px; /* Espace en bas de page pour les icônes */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer .social-icons a {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+footer .social-icons .icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+footer .social-icons a:hover .icon {
+    transform: scale(1.2);
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+    0% {
+        transform: translateY(20px); /* Démarre légèrement en bas */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0); /* Position normale */
+        opacity: 1;
+    }
+}

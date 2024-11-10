@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctis - Bot Discord</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barre de navigation sticky -->
+    <header class="sticky-nav">
+        <div class="nav-links">
+            <a href="#home">🏠 Accueil</a>
+            <a href="#features">⚙️ Fonctionnalités</a>
+            <a href="https://splasher.gitbook.io/noctis">📄 Documentation</a>
+            <a href="#contact">🔎 Aperçu</a>
+        </div>
+        <a href="#" id="add-bot-btn">
+            <img src="images/discord-icon.png" alt="Discord" class="icon"> Ajouter le bot
+        </a>
+    </header>    
+
+    <!-- Section d'accueil avec animation de texte -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Bienvenue dans le Futur 🌌</h1>
+            <p id="hero-description" class="hero-description"></p> <!-- ID spécifique pour le texte animé -->
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <div class="container">
+        <section id="features" class="content">
+            <h2>Fonctionnalités 🚀</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <h3>🔒 Modération</h3>
+                    <p>Gardez votre communauté sûre et organisée sans effort.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎰 Mini-Jeux</h3>
+                    <p>Offrez à votre communauté plein de mini-jeux sur votre serveur.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📞 Support</h3>
+                    <p>Automatisez l’assistance des membres grâce à des tickets.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔧 Configuration</h3>
+                    <p>Configurez le bot en fonction de vos préférences et goûts.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📌 Simplicité</h3>
+                    <p>Vous n'avez surement jamais vu un bot aussi simple d'utilisation.</p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Bouton Ajouter le bot sous les fonctionnalités -->
+        <div class="add-bot-container">
+            <a href="#" id="add-bot-btn-secondary">
+                <img src="images/discord-icon.png" alt="Discord" class="icon"> Ajouter le bot
+            </a>
+        </div>
+    </div>
+
+    <!-- Pied de page avec icônes de réseaux sociaux Discord et GitBook -->
+    <footer>
+        <p>&copy; 2024 Noctis. Tous droits réservés.</p>
+        <div class="social-icons">
+            <!-- Icône Discord -->
+            <a href="https://discord.gg/Haq6JZv8eT" target="_blank" title="Discord">
+                <img src="images/discord-icon.png" alt="Discord" class="icon">
+            </a>
+            <!-- Icône GitBook -->
+            <a href="https://splasher.gitbook.io/noctis" target="_blank" title="GitBook">
+                <img src="images/gitbook-icon.png" alt="GitBook" class="icon">
+            </a>
+        </div>
+    </footer>
+
+    <!-- Script pour l'animation de texte et l'ouverture du lien en pop-up -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const heroDescription = document.getElementById("hero-description");
+            const texts = [
+                "Explorez des solutions de bots avancées pour automatiser vos tâches.",
+                "Optimisez votre productivité avec nos outils intelligents.",
+                "Développez une communauté en toute sérénité.",
+                "Automatisation, efficacité, succès.",
+                "BlaBlaBla"
+            ];
+            let textIndex = 0;
+            let charIndex = 0;
+
+            function typeText() {
+                if (charIndex < texts[textIndex].length) {
+                    heroDescription.textContent += texts[textIndex].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeText, 30);
+                } else {
+                    setTimeout(deleteText, 1500);
+                }
+            }
+
+            function deleteText() {
+                if (charIndex > 0) {
+                    heroDescription.textContent = texts[textIndex].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(deleteText, 20);
+                } else {
+                    textIndex = (textIndex + 1) % texts.length;
+                    setTimeout(typeText, 700);
+                }
+            }
+
+            typeText(); // Démarrer l’animation d’écriture
+
+            // Ouverture du lien en pop-up pour "Ajouter le bot"
+            const addBotBtn = document.getElementById("add-bot-btn");
+            const botLink = "https://discord.com/oauth2/authorize?client_id=1303404664141647872&scope=bot&permissions=1099511627775&response_type=code&redirect_uri=https%3A%2F%2Fdiscord.gg%2FHaq6JZv8eT";
+
+            addBotBtn.addEventListener("click", (e) => {
+                e.preventDefault(); // Empêche le lien de s'ouvrir dans le même onglet
+                window.open(
+                    botLink,
+                    "popupWindow",
+                    "width=600,height=600,scrollbars=yes,resizable=no"
+                );
+            });
+        });
+    </script>
+</body>
+</html>
